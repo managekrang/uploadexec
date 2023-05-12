@@ -15,26 +15,6 @@ import (
 	"time"
 )
 
-func straceExists() bool {
-    // Check if the strace command exists.
-    _, err := os.Stat("/usr/bin/strace")
-    if err != nil {
-        return false
-    }
-
-    return true
-}
-
-func sudo(command string) {
-    // Run the command as root.
-    out, err := exec.Command("sudo", command).Output()
-    if err != nil {
-        fmt.Println(err)
-        os.Exit(1)
-    }
-
-    fmt.Println(string(out))
-}
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm() //Parse url parameters passed, then parse the response packet for the POST body (request body)
@@ -121,17 +101,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	 // Check if strace is already installed.
-         // if straceExists() {
-         //	fmt.Println("strace is already installed.")
-         //	return
-    	 //}
 
-    	// Install strace.
-    	//fmt.Println("Installing strace...")
-    	//sudo("apt-get install strace")
-    	//fmt.Println("strace installed successfully.")
-	
 	http.HandleFunc("/", sayhelloName) // setting router rule
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/upload", upload)
