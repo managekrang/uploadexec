@@ -1,6 +1,6 @@
 <html>
 <head>
-       <title>Upload file</title>
+       <title>Upload File</title>
 </head>
 <body>
 <form enctype="multipart/form-data" action="http://192.168.224.132:9090/upload" method="post">
