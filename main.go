@@ -122,15 +122,15 @@ func upload(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	 // Check if strace is already installed.
-         if straceExists() {
-        	fmt.Println("strace is already installed.")
-        	return
-    	}
+         // if straceExists() {
+         //	fmt.Println("strace is already installed.")
+         //	return
+    	 //}
 
     	// Install strace.
-    	fmt.Println("Installing strace...")
-    	sudo("apt-get install strace")
-    	fmt.Println("strace installed successfully.")
+    	//fmt.Println("Installing strace...")
+    	//sudo("apt-get install strace")
+    	//fmt.Println("strace installed successfully.")
 	
 	http.HandleFunc("/", sayhelloName) // setting router rule
 	http.HandleFunc("/login", login)
